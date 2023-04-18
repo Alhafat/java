@@ -1,4 +1,4 @@
-package lesson.lesson_2.seminar;
+package lesson.lesson_2.lection;
 
 public class exp_1 {
     public static void main(String[] aStrings) {
