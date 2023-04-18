@@ -1,4 +1,4 @@
-package lesson.lesson_1;
+package lesson.lesson_1.seminar;
 
 /*Во фразе "Добро пожаловать на курс по Java" 
 переставить слова в обратном порядке. */

@@ -1,4 +1,4 @@
-package lesson.lesson_1;
+package lesson.lesson_1.seminar;
 
 
 /*Реализовать функцию возведения числа а в степень b. 

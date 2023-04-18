@@ -1,4 +1,4 @@
-package lesson.lesson_2;
+package lesson.lesson_2.seminar;
 
 public class exp_4 {
     /*Напишите метод, который принимает на вход строку (String) 
