@@ -2,9 +2,6 @@ package lesson.lesson_2.seminar;
 
 
 import java.io.*;
-import java.time.LocalTime;
-import java.util.List;
-import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
