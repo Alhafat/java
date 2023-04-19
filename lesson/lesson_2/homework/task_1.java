@@ -1,7 +1,10 @@
 package lesson.lesson_2.homework;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.nio.charset.StandardCharsets;
@@ -11,7 +14,7 @@ public class task_1 {
      * Дана json строка [{ "фамилия":"Иванов","оценка":"5","предмет":"Математика"},
      * {"фамилия":"Петрова","оценка":"4","предмет":"Информатика"},{"фамилия":
      * "Краснов","оценка":"5","предмет":"Физика"}]
-     * Задача написать метод(ы), который распарсит строку и выдаст ответ вида:              +
+     * Задача написать метод(ы), который распарсит строку и выдаст ответ вида:                  //+
      * Студент Иванов получил 5 по предмету Математика.
      * Студент Петрова получил 4 по предмету Информатика.
      * Студент Краснов получил 5 по предмету Физика.
@@ -21,9 +24,9 @@ public class task_1 {
      * Исходная json строка это просто String !!! Для работы используйте методы
      * String, такие как replace, split, substring и т.д. по необходимости
      * 
-     * Создать метод, который запишет результат работы в файл. Обработайте                 
+     * Создать метод, который запишет результат работы в файл. Обработайте                      //+
      * исключения и запишите ошибки в лог файл.
-     * 2. *Получить исходную json строку из файла, используя FileReader или Scanner
+     * 2. *Получить исходную json строку из файла, используя FileReader или Scanner             //+
      * 3. *Реализуйте алгоритм сортировки пузырьком числового массива, результат
      * после каждой итерации запишите в лог-файл.
      */
@@ -37,7 +40,7 @@ public class task_1 {
 
         // System.out.println(buffer);
     }
-        
+
     public static String read_file() {
         File file = new File("file.txt");
         try {
@@ -51,11 +54,11 @@ public class task_1 {
             return name;
 
         } catch (IOException e) {
-                e.printStackTrace();
-            }
-        return null;
+            e.printStackTrace();
         }
-        
+        return null;
+    }
+
     public static String[] get_str_arr(String value) {
         value = value.replace(":", ",");
         value = value.replaceAll("[^A-Za-zА-Яа-я-0-9-,]", "");
@@ -71,9 +74,9 @@ public class task_1 {
         String text = arr[0] + " ";
         for (int i = 1; i < arr.length + 1; i++) {
             if (i % 6 == 0) {
-                text=text.trim() + ".";
+                text = text.trim() + ".";
                 System.out.println(text);
-                // write_file(text);
+                write_file(text);
                 text = arr[0] + " ";
             } else {
                 text += arr[i] + " ";
@@ -81,12 +84,16 @@ public class task_1 {
         }
     }
 
-    // public static void write_file(String aString) {
-    //     File file = new File("file.txt");
-    //     try {
-    //         file = new File("file.txt");
-    //     } catch (IOException w) {
-    //         e.printStackTrace();
-    //     }
-    // }
+    public static void write_file(String aString) {
+        String text = aString;
+        
+        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+                                 new FileOutputStream("file.txt", true), "UTF-8"))) {
+                                 writer.write(text);
+                                 writer.newLine();
+            }
+        catch (IOException e) {
+            System.out.println(e);
+        }
+    }
 }
