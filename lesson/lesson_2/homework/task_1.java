@@ -86,11 +86,9 @@ public class task_1 {
     }
 
     public static void write_file(String aString) {
-        String text = aString;
-
         try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream("file.txt", true), "UTF-8"))) {
-            writer.write(text);
+            writer.write(aString);
             writer.newLine();
         } catch (IOException e) {
             System.out.println(e);
