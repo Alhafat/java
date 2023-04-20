@@ -36,10 +36,6 @@ public class task_1 {
         String str = read_file();
         String[] result = get_str_arr(str);
         get_str_val(result);
-
-        // StringBuffer buffer = new StringBuffer("[{'фамилия':'Иванов'}]");
-
-        // System.out.println(buffer);
     }
 
     public static String read_file() {
@@ -47,9 +43,9 @@ public class task_1 {
         try {
             Scanner sc = new Scanner(file, StandardCharsets.UTF_8);
             String name = sc.nextLine();
-            while (sc.hasNextLine()) {
-                System.out.println(sc.nextLine());
-            }
+            // while (sc.hasNextLine()) {
+            //     System.out.println(sc.nextLine());
+            // }
             sc.close();
             System.out.println("Получено значение: \n" + name + "\n");
             return name;
