@@ -51,7 +51,7 @@ public class task_1 {
                 System.out.println(sc.nextLine());
             }
             sc.close();
-            System.out.println("Получено значение: \n" + name);
+            System.out.println("Получено значение: \n" + name + "\n");
             return name;
 
         } catch (IOException e) {
@@ -67,7 +67,7 @@ public class task_1 {
                 .replace("оценка", "получил")
                 .replace("предмет", "по предмету");
         String[] arr = value.split(",");
-        System.out.println("Получен исходный массив: \n" + Arrays.toString(arr));
+        System.out.println("Получен исходный массив: \n" + Arrays.toString(arr) + "\n");
         return arr;
     }
 
@@ -75,22 +75,22 @@ public class task_1 {
         // String text = arr[0] + " ";
         // for (int i = 1; i < arr.length; i++) {
         // if (arr[i].equals("Студент")) {
-        // text = text.trim(); //удаляет пробелы
+        // text = text.trim() + "."; // удаляет пробелы
         // System.out.println(text);
         // write_file(text); // дописывает в файл
         // text = arr[0] + " ";
         // } else {
         // text += arr[i] + " ";
         // }
-        // if (i == arr.length-1){
-        // System.out.println(text);
+        // if (i == arr.length - 1) {
+        // System.out.println(text = text + ".");
         // write_file(text);
         // }
         String text = ".";
         for (int i = arr.length - 1; i > -1; i--) {
             if (arr[i].equals("Студент")) {
                 text = arr[0] + text;
-                System.out.println(text);
+                System.out.println(text+"\n");
                 write_file(text); // дописывает в файл
                 text = ".";
             } else {
