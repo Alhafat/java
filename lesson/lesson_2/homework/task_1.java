@@ -61,11 +61,11 @@ public class task_1 {
     }
 
     public static String[] get_str_arr(String value) {
-        value = value.replace(":", ",");
-        value = value.replaceAll("[^A-Za-zА-Яа-я-0-9-,]", "");
-        value = value.replace("фамилия", "Студент");
-        value = value.replace("оценка", "получил");
-        value = value.replace("предмет", "по предмету");
+        value = value.replace(":", ",")
+                .replaceAll("[^A-Za-zА-Яа-я-0-9-,]", "")
+                .replace("фамилия", "Студент")
+                .replace("оценка", "получил")
+                .replace("предмет", "по предмету");
         String[] arr = value.split(",");
         System.out.println("Получен исходный массив: \n" + Arrays.toString(arr));
         return arr;
@@ -74,27 +74,27 @@ public class task_1 {
     public static void get_str_val(String[] arr) {
         // String text = arr[0] + " ";
         // for (int i = 1; i < arr.length; i++) {
-        //     if (arr[i].equals("Студент")) {
-        //         text = text.trim();                 //удаляет пробелы
-        //         System.out.println(text);
-        //         write_file(text);               // дописывает в файл
-        //         text = arr[0] + " ";
-        //     } else {
-        //         text += arr[i] + " ";               
-        //     }
-        //     if (i == arr.length-1){
-        //         System.out.println(text);
-        //         write_file(text); 
-        //     }
-        String text =".";
-        for (int i = arr.length-1; i > -1; i--) {
+        // if (arr[i].equals("Студент")) {
+        // text = text.trim(); //удаляет пробелы
+        // System.out.println(text);
+        // write_file(text); // дописывает в файл
+        // text = arr[0] + " ";
+        // } else {
+        // text += arr[i] + " ";
+        // }
+        // if (i == arr.length-1){
+        // System.out.println(text);
+        // write_file(text);
+        // }
+        String text = ".";
+        for (int i = arr.length - 1; i > -1; i--) {
             if (arr[i].equals("Студент")) {
-                text=arr[0] + text;
+                text = arr[0] + text;
                 System.out.println(text);
-                write_file(text);               // дописывает в файл
+                write_file(text); // дописывает в файл
                 text = ".";
             } else {
-                text = " " + arr[i] + text;               
+                text = " " + arr[i] + text;
             }
         }
     }
