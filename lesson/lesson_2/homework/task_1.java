@@ -72,15 +72,29 @@ public class task_1 {
     }
 
     public static void get_str_val(String[] arr) {
-        String text = arr[0] + " ";
-        for (int i = 1; i < arr.length + 1; i++) {
-            if (i % 6 == 0) {
-                text = text.trim() + ".";
+        // String text = arr[0] + " ";
+        // for (int i = 1; i < arr.length; i++) {
+        //     if (arr[i].equals("Студент")) {
+        //         text = text.trim();                 //удаляет пробелы
+        //         System.out.println(text);
+        //         write_file(text);               // дописывает в файл
+        //         text = arr[0] + " ";
+        //     } else {
+        //         text += arr[i] + " ";               
+        //     }
+        //     if (i == arr.length-1){
+        //         System.out.println(text);
+        //         write_file(text); 
+        //     }
+        String text =".";
+        for (int i = arr.length-1; i > -1; i--) {
+            if (arr[i].equals("Студент")) {
+                text=arr[0] + text;
                 System.out.println(text);
-                write_file(text);
-                text = arr[0] + " ";
+                write_file(text);               // дописывает в файл
+                text = ".";
             } else {
-                text += arr[i] + " ";
+                text = " " + arr[i] + text;               
             }
         }
     }
