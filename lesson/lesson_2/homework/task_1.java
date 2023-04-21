@@ -1,10 +1,15 @@
 package lesson.lesson_2.homework;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.nio.charset.StandardCharsets;
@@ -102,7 +107,20 @@ public class task_1 {
             writer.newLine();
             writer.close();
         } catch (IOException e) {
+            appendToFile(e);
             System.out.println(e);
+        }
+    }
+
+    public static void appendToFile(Exception e) {
+        try {
+           FileWriter fstream = new FileWriter("lesson/lesson_2/homework/mistakes.txt", false);
+           BufferedWriter out = new BufferedWriter(fstream);
+           PrintWriter pWriter = new PrintWriter(out, true);
+           e.printStackTrace(pWriter);
+        }
+        catch (Exception ie) {
+           throw new RuntimeException("Could not write Exception to file", ie);
         }
     }
 }
