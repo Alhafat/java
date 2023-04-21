@@ -39,12 +39,12 @@ public class task_1 {
     }
 
     public static String read_file() {
-        File file = new File("file.txt");
+        File file = new File("lesson/lesson_2/homework/file.txt");
         try {
             Scanner sc = new Scanner(file, StandardCharsets.UTF_8);
             String name = sc.nextLine();
             // while (sc.hasNextLine()) {
-            //     System.out.println(sc.nextLine());
+            // System.out.println(sc.nextLine());
             // }
             sc.close();
             System.out.println("Получено значение: \n" + name + "\n");
@@ -86,7 +86,7 @@ public class task_1 {
         for (int i = arr.length - 1; i > -1; i--) {
             if (arr[i].equals("Студент")) {
                 text = arr[0] + text;
-                System.out.println(text+"\n");
+                System.out.println(text + "\n");
                 write_file(text); // дописывает в файл
                 text = ".";
             } else {
@@ -97,9 +97,10 @@ public class task_1 {
 
     public static void write_file(String aString) {
         try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("file.txt", true), "UTF-8"))) {
+                new FileOutputStream("lesson/lesson_2/homework/file.txt", true), "UTF-8"))) {
             writer.write(aString);
             writer.newLine();
+            writer.close();
         } catch (IOException e) {
             System.out.println(e);
         }
