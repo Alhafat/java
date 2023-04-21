@@ -1,1 +1,8 @@
-
+java.io.FileNotFoundException: \*lesson\lesson_2\homework\file.txt (Синтаксическая ошибка в имени файла, имени папки или метке тома)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:155)
+	at lesson.lesson_2.homework.task_1.write_file(task_1.java:105)
+	at lesson.lesson_2.homework.task_1.get_str_val(task_1.java:95)
+	at lesson.lesson_2.homework.task_1.main(task_1.java:43)

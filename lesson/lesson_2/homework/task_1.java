@@ -102,7 +102,7 @@ public class task_1 {
 
     public static void write_file(String aString) {
         try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("lesson/lesson_2/homework/file.txt", true), "UTF-8"))) {
+                new FileOutputStream("/*lesson/lesson_2/homework/file.txt", true), "UTF-8"))) {
             writer.write(aString);
             writer.newLine();
             writer.close();
@@ -114,10 +114,11 @@ public class task_1 {
 
     public static void appendToFile(Exception e) {
         try {
-           FileWriter fstream = new FileWriter("lesson/lesson_2/homework/mistakes.txt", false);
-           BufferedWriter out = new BufferedWriter(fstream);
+           BufferedWriter out = new BufferedWriter(new OutputStreamWriter(
+            new FileOutputStream("lesson/lesson_2/homework/mistakes.txt"), "UTF-8"));
            PrintWriter pWriter = new PrintWriter(out, true);
            e.printStackTrace(pWriter);
+           out.newLine();
         }
         catch (Exception ie) {
            throw new RuntimeException("Could not write Exception to file", ie);
