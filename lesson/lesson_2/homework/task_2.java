@@ -47,7 +47,7 @@ public class task_2 {
 
     public static void write_file(int[] sort_arr) {
         try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("sort_arr.txt", true), "UTF-8"))) {
+                new FileOutputStream("lesson/lesson_2/homework/sotr_arr.txt", true), "UTF-8"))) {
             writer.write("--------------------------------------");
             writer.newLine();
             int len = sort_arr.length;
