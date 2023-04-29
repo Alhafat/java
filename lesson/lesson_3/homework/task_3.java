@@ -16,23 +16,22 @@ public class task_3 {
 
     public static void main(String[] args) {
         List<String> planets = new ArrayList<>(Arrays.asList("Меркурий", "Венера", "Земля", "Марс", "Юпитер", "Сатурн",
-                "Уран", "Нептун", "Меркурий", "Венера", "Земля", "Марс", "Юпитер", "Сатурн", "Уран", "Нептун"));
+                "Нептун", "Венера", "Земля", "Юпитер", "Сатурн", "Уран", "Нептун"));
         get_planets_quantity(planets);
     }
 
     public static void get_planets_quantity(List<String> list) {
         for (int i = 0; i < list.size(); i++) {
-            Integer count=0;
-            String temp=list.get(i);
+            Integer count = 0;
+            String temp = list.get(i);
             for (String planet : list) {
                 if (temp.equals(planet)) {
-                   count++; 
+                    count++;
                 }
-            }    
+            }
             System.out.printf("Планета %s встречается в списке %d раз.\n", list.get(i), count);
             list.removeAll(Arrays.asList(list.get(i)));
-            i--;        
-        } 
+            i--;
+        }
     }
-
 }
