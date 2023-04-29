@@ -21,17 +21,30 @@ public class task_3 {
     }
 
     public static void get_planets_quantity(List<String> list) {
-        for (int i = 0; i < list.size(); i++) {
+        // for (int i = 0; i < list.size(); i++) {
+        //     Integer count = 0;
+        //     String temp = list.get(i);
+        //     for (String planet : list) {
+        //         if (temp.equals(planet)) {
+        //             count++;
+        //         }
+        //     }
+        //     System.out.printf("Планета %s встречается в списке %d раз.\n", list.get(i), count);
+        //     list.removeAll(Arrays.asList(list.get(i)));
+        //     i--;
+        // }
+        if (list.size() == 0) {
+            return;
+        } else {
             Integer count = 0;
-            String temp = list.get(i);
             for (String planet : list) {
-                if (temp.equals(planet)) {
+                if (list.get(0).equals(planet)) {
                     count++;
                 }
             }
-            System.out.printf("Планета %s встречается в списке %d раз.\n", list.get(i), count);
-            list.removeAll(Arrays.asList(list.get(i)));
-            i--;
+            System.out.printf("Планета %s встречается в списке %d раз.\n", list.get(0), count);
+            list.removeAll(Arrays.asList(list.get(0)));
+            get_planets_quantity(list);
         }
     }
 }
