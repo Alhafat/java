@@ -2,9 +2,11 @@ package lesson.lesson_4.seminar;
 
 public class exp_5 {
 
-    /* Реализовать стэк с помощью массива.
-Нужно реализовать методы:
-size(), empty(), push(), peek(), pop().*/
+    /*
+     * Реализовать стэк с помощью массива.
+     * Нужно реализовать методы:
+     * size(), empty(), push(), peek(), pop().
+     */
 
     public static void main(String[] args) {
         mystack stack = new mystack();
