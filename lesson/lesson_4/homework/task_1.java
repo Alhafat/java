@@ -11,8 +11,8 @@ public class task_1 {
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<>(Arrays.asList(1, 2, 3, 4, 5));
         System.out.println(list);
-        list = reverce_list(list);
-        System.out.println(list);
+        LinkedList<Integer> list_reverse = reverce_list(list);
+        System.out.println(list_reverse);
     }
 
     public static LinkedList<Integer> reverce_list(LinkedList<Integer> list) {
