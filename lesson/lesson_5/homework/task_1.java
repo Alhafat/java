@@ -1,12 +1,19 @@
 package lesson.lesson_5.homework;
 
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.security.Key;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 public class task_1 {
 
@@ -28,6 +35,7 @@ public class task_1 {
         list.put("234432", "ИВАНОВ");
         list.put("654321", "ПЕТРОВА");
         list.put("345678", "ИВАНОВ");
+        list.put("345678", "PETROV");
         name(list);
         // System.out.println(list);
 
@@ -38,9 +46,8 @@ public class task_1 {
         System.out.println("Какую операцию желаете провести: ");
         System.out.println("1 - Чтение справочника.");
         System.out.println("2 - Поиск контакта.");
-        System.out.println("3 - Изменение контакта.");
-        System.out.println("4 - Добавление контакта.");
-        System.out.println("5 - Удаление контакта.");
+        System.out.println("3 - Добавление контакта.");
+        System.out.println("4 - Удаление контакта.");
 
         Integer answer = command.nextInt();
         if (answer == 1) {
@@ -49,21 +56,15 @@ public class task_1 {
         if (answer == 2) {
             find_person(list);
         }
-        if (answer == 3) {
-            list = change_person(list);
-        }
         if (answer == 4) {
             list = add_person(list);
             System.out.println(list);
         }
         if (answer == 5) {
-
+            list = delete_person(list);
+            System.out.println(list);
         }
         command.close();
-    }
-
-    public static void print_guide(Map list) {
-        System.out.println(list);
     }
 
     public static void find_person(Map list) {
@@ -86,37 +87,60 @@ public class task_1 {
     }
 
     public static Map change_person(Map list) {
-        find_person(list);
-        Scanner isScanner = new Scanner(new InputStreamReader(System.in, "UTF-8"));
-        System.out.println("Введите имя:");
-        String value_name = isScanner.nextLine();
-        System.out.println(value_name);
-        // System.out.println(list.containsValue(value_name));
-        if (list.containsValue(value_name) == false) {
-            System.out.println("Такого контакта нет. Конец программы.");
-            isScanner.close();
-        } else {
-            for (var item : list.entrySet()) {
-                if (item.equals(value_name)) {
-                    System.out.printf("[%s,%s]\n", item.getKey(), item.getValue());
-                }
-            }
-            isScanner.close();
-        }
         return list;
     }
 
     public static Map add_person(Map list) {
+        String encoding = System.getProperty("console.encoding", "utf-8");
         Scanner isScanner = new Scanner(System.in);
         System.out.println("Введите номер телефона:");
         String number = isScanner.nextLine();
-        Scanner value_name = new Scanner(System.in);
+        Scanner value_name = new Scanner(System.in, encoding);
         System.out.println("Введите имя:");
         String name = value_name.nextLine().toUpperCase();
+        System.out.println(name);
         list.put(number, name);
         // System.out.println("list");
         isScanner.close();
         value_name.close();
         return list;
+    }
+
+    public static Map delete_person(Map list) {
+        Scanner value_name = new Scanner(System.in);
+        System.out.println("Введите имя удаляемого контакта:");
+        String name = value_name.nextLine().toUpperCase();
+        System.out.println(name);
+        if (list.containsValue(name) == false) {
+            System.out.println("Такого контакта нет. Конец программы.");
+            value_name.close();
+            return list;
+        } else {
+            List<String> listOfKeys = getAllKeysForValue(list, name);
+            for (String item : listOfKeys) {
+                list.remove(item);
+            }
+            return list;
+        }
+    }
+
+    static <K, V> List<K> getAllKeysForValue(Map<K, V> mapOfWords, V value) {
+        List<K> listOfKeys = null;
+
+        // проверяем есть ли такое значение в мапе
+        if (mapOfWords.containsValue(value)) {
+            // создаем список
+            listOfKeys = new ArrayList<>();
+
+            // записываем каждый ключ по значению.
+            for (Map.Entry<K, V> entry : mapOfWords.entrySet()) {
+                // проверяем совпадает ли значение с заданным
+                if (entry.getValue().equals(value)) {
+                    // добавляем ключ
+                    listOfKeys.add(entry.getKey());
+                }
+            }
+        }
+        return listOfKeys;
     }
 }
