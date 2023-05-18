@@ -1,5 +1,8 @@
 package lesson.lesson_5.homework;
 
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Map;
@@ -51,6 +54,7 @@ public class task_1 {
         }
         if (answer == 4) {
             list = add_person(list);
+            System.out.println(list);
         }
         if (answer == 5) {
 
@@ -63,19 +67,42 @@ public class task_1 {
     }
 
     public static void find_person(Map list) {
-        Scanner isScanner = new Scanner(System.in);
+        Scanner isScanner = new Scanner(new InputStreamReader(System.in, "UTF-8"));
         System.out.println("Введите имя:");
-        String value_name = isScanner.nextLine().toUpperCase();
-        for (var item : list.entrySet()) {
-            if (item.getValue().equals(value_name)) {
-                System.out.println("[%s,%s]\n", item.getKey(), item.getValue());
+        String value_name = isScanner.nextLine();
+        System.out.println(value_name);
+        System.out.println(list.containsValue(value_name));
+        if (list.containsValue(value_name) == false) {
+            System.out.println("Такого контакта нет. Конец программы.");
+            isScanner.close();
+        } else {
+            for (var item : list.entrySet()) {
+                if (item.equals(value_name)) {
+                    System.out.printf("[%s,%s]\n", item.getKey(), item.getValue());
+                }
             }
+            isScanner.close();
         }
-        isScanner.close();
     }
 
     public static Map change_person(Map list) {
         find_person(list);
+        Scanner isScanner = new Scanner(new InputStreamReader(System.in, "UTF-8"));
+        System.out.println("Введите имя:");
+        String value_name = isScanner.nextLine();
+        System.out.println(value_name);
+        // System.out.println(list.containsValue(value_name));
+        if (list.containsValue(value_name) == false) {
+            System.out.println("Такого контакта нет. Конец программы.");
+            isScanner.close();
+        } else {
+            for (var item : list.entrySet()) {
+                if (item.equals(value_name)) {
+                    System.out.printf("[%s,%s]\n", item.getKey(), item.getValue());
+                }
+            }
+            isScanner.close();
+        }
         return list;
     }
 

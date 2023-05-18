@@ -10,7 +10,7 @@ public class exp_1 {
         // System.out.println(a.hashCode());
         // System.out.println("b".hashCode()); // номер символа???
         Map<Integer,String> db = new HashMap<>();
-        db.putIfAbsent(1, "Kate"); // если есть ключ не добавляет проверяет с ам
+        db.putIfAbsent(1, "Kate"); // если есть ключ не добавляет проверяет сам
         db.put(2, "первая строка");
         db.put(null, "!null");
         // System.out.println(db);
