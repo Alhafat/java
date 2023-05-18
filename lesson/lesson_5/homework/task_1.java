@@ -56,38 +56,37 @@ public class task_1 {
         if (answer == 2) {
             find_person(list);
         }
-        if (answer == 4) {
+        if (answer == 3) {
             list = add_person(list);
             System.out.println(list);
         }
-        if (answer == 5) {
+        if (answer == 4) {
             list = delete_person(list);
             System.out.println(list);
         }
         command.close();
     }
 
+    public static void print_guide(Map list) {
+        System.out.println(list);
+    }
+
     public static void find_person(Map list) {
-        Scanner isScanner = new Scanner(new InputStreamReader(System.in, "UTF-8"));
+        Scanner isScanner = new Scanner(System.in, "UTF-8");
         System.out.println("Введите имя:");
-        String value_name = isScanner.nextLine();
-        System.out.println(value_name);
-        System.out.println(list.containsValue(value_name));
+        String value_name = isScanner.nextLine().toUpperCase();
+        // System.out.println(value_name);
+        // System.out.println(list.containsValue(value_name));
         if (list.containsValue(value_name) == false) {
             System.out.println("Такого контакта нет. Конец программы.");
             isScanner.close();
         } else {
-            for (var item : list.entrySet()) {
-                if (item.equals(value_name)) {
-                    System.out.printf("[%s,%s]\n", item.getKey(), item.getValue());
-                }
+            List<String> listOfKeys = getAllKeysForValue(list, value_name);
+            for (String item : listOfKeys) {
+                System.out.printf("[%s,%s]\n", list.get(item), item);
             }
             isScanner.close();
         }
-    }
-
-    public static Map change_person(Map list) {
-        return list;
     }
 
     public static Map add_person(Map list) {
