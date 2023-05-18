@@ -35,7 +35,7 @@ public class exp_2 {
                     map.put(c_1[i], c_2[i]);
                 }
             }
-            System.out.println(true);
+            System.out.println(true); //чтобы работало корректно надо фор вынести в отдельный метод
         }
     }
 }
