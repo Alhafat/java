@@ -41,6 +41,5 @@ public class exp_4 {
                 System.out.println(cat);
             }
         }
-        
     }
 }
