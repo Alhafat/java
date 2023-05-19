@@ -21,6 +21,7 @@ public class exp_4 {
         cat cat_1 = new cat("Пуся", "ж", 3, "Вася");
         cat cat_2 = new cat("Дуся", "ж", 5, "Вася");
         cat cat_3 = new cat("Дуся", "ж", 5, "Вася");
+        cat cat_4 = new cat("Блохуся", "ж", 2, "Петя");
         // cat cat_3 = cat_2;
         // System.out.println(cat_1);
         // System.out.println(cat_2);
@@ -30,9 +31,16 @@ public class exp_4 {
         cats.add(cat_1);
         cats.add(cat_2);
         cats.add(cat_3);
+        cats.add(cat_4);
         // System.out.println(cats);
         for (cat cat : cats) {
             System.out.println(cat);
         }
+        for (cat cat : cats) {
+            if (cat.getAge()==5) {
+                System.out.println(cat);
+            }
+        }
+        
     }
 }
